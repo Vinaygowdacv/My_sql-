@@ -1,0 +1,21 @@
+create table department(dep_id int primary key,dep_name varchar(100)not null unique );
+
+
+insert into department value(101,"CSE"),(102,"ECE"),(103,"EEE");
+
+
+create table teacher(teacher_id int primary key,
+                     teacher_name varchar(100)not null ,
+                     dep_id int ,
+                     foreign key(dep_id)references department(dep_id) );
+                
+insert into teacher value(123,"Raju",101),(321,"Ramu",102),(422,"Rahul",103);
+
+create table student(std_id int primary key,std_name varchar(100)not null,dep_id int,foreign key(dep_id)references department(dep_id));
+insert into student value(01,"vikas",101),(02,"krishna",102),(03,"pranav",103);
+
+select*from department;
+select*from teacher;
+select*from student;
+
+
