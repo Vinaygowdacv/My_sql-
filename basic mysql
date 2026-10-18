@@ -1,0 +1,15 @@
+create table students(std_id int primary key,std_name varchar(100)not null,std_age int not null,dep varchar(100),marks int,city varchar(100));
+desc students;
+
+insert into students value(1,"Raju",20,"CSE",80,"Bengaluru"),(2,"Ramu",21,"ECE",83,"Mangalore"),
+(3,"Rahul",20,"CSE",80,"Bengaluru"),(4,"krishna",20,"CSE-AI",70,"Bengaluru"),(5,"vikas",19,"EEE",80,"Hubli");
+select * from students;
+select std_name , marks from students;
+
+SELECT marks FROM students
+WHERE marks > 75;
+
+select dep from students where dep ="CSE";
+
+SELECT marks FROM students
+ORDER BY marks ASC;
