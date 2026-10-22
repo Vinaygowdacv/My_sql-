@@ -1,0 +1,46 @@
+create table branch(branch_name varchar(100)primary key,branch_city varchar(100)not null, assert real);
+create table bankacc(accno int primary key,
+                    branch_name varchar(100),
+                    foreign key(branch_name)references branch(branch_name),balance real);
+create table bankcust(cust_name varchar(100)primary key,cust_street varchar(100)not null,cust_city varchar(100));
+create table depositer(cust_name varchar(100),foreign key(cust_name)references bankcust(cust_name),accno int);
+create table loan(loan_no int primary key,branch_name varchar(100),foreign key(branch_name)references branch(branch_name),amount real);
+
+INSERT INTO branch VALUES
+('Delhi Main', 'Delhi', 900000),
+('Delhi City', 'Delhi', 700000),
+('Bangalore Main', 'Bangalore', 500000),
+('Bangalore City', 'Bangalore', 400000),
+('Mumbai Main', 'Mumbai', 800000),
+('Chennai Main', 'Chennai', 1000000);
+
+INSERT INTO bankacc VALUES
+(101, 'Delhi Main', 10000),
+(102, 'Delhi City', 20000),
+(103, 'Bangalore Main', 15000),
+(104, 'Bangalore City', 25000),
+(105, 'Mumbai Main', 30000),
+(106, 'Chennai Main', 40000);
+
+INSERT INTO bankcust VALUES
+('Amit', 'MG Road', 'Delhi'),
+('Ravi', 'Brigade Road', 'Bangalore'),
+('Priya', 'Park Street', 'Mumbai'),
+('Kiran', 'Church Street', 'Bangalore'),
+('Sneha', 'Anna Salai', 'Chennai');
+
+INSERT INTO depositer VALUES
+('Amit', 101),
+('Amit', 102),
+('Ravi', 103),
+('Kiran', 104),
+('Priya', 105),
+('Sneha', 106);
+
+INSERT INTO loan VALUES
+(201, 'Bangalore Main', 50000),
+(202, 'Delhi Main', 30000),
+(203, 'Mumbai Main', 60000),
+(204, 'Chennai Main', 20000);
+
+
